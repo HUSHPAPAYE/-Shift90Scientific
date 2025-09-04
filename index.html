@@ -1,0 +1,90 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Shift90 Scientific</title>
+<link rel="manifest" href="manifest.webmanifest?v=1">
+<link rel="stylesheet" href="style.css?v=1">
+<link rel="apple-touch-icon" href="icon-512.png">
+<meta name="theme-color" content="#0b1220">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js?v=1');
+  }
+</script>
+</head><body>
+<header class="top">
+  <h1>Shift90 Scientific <span id="phase"></span></h1>
+  <div class="kpis">
+    <div><b id="dayLabel"></b></div>
+    <div>Score <b id="score">0%</b></div>
+    <div>Streak <b id="streak">0</b></div>
+    <div>Énergie <b id="energy">0</b></div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-view="day">Jour</button>
+  <button class="tab" data-view="week">Semaine</button>
+  <button class="tab" data-view="phase">Phase</button>
+  <button class="tab" data-view="data">Données</button>
+</nav>
+
+<main id="view-day" class="view active">
+  <section class="card">
+    <div class="moments">
+      <button class="pill active" data-m="morning">Matin</button>
+      <button class="pill" data-m="noon">Après-midi</button>
+      <button class="pill" data-m="evening">Soir</button>
+    </div>
+    <div id="sliders"></div>
+    <textarea id="note" rows="4" placeholder="Observation du moment…"></textarea>
+    <input id="tags" placeholder="tags, séparés, par, virgules">
+    <button id="saveMoment" class="primary">Valider le moment</button>
+    <div class="hint" id="hint"></div>
+  </section>
+
+  <section class="card">
+    <h3>Jours</h3>
+    <div id="daysList"></div>
+    <!-- panneau de détail unique, déplacé sous la carte cliquée -->
+    <section id="detail" class="card hidden"></section>
+  </section>
+
+  <section class="card">
+    <h3>Rappels</h3>
+    <div class="rem">
+      <label>Matin <input id="r_m" type="time"></label>
+      <label>Après-midi <input id="r_n" type="time"></label>
+      <label>Soir <input id="r_e" type="time"></label>
+    </div>
+    <button id="saveRem" class="ghost">Enregistrer</button>
+  </section>
+</main>
+
+<main id="view-week" class="view">
+  <section class="card">
+    <h3>Semaine courante</h3>
+    <div id="heatmap" class="grid"></div>
+    <div class="row"><span>EMA7</span><b id="ema7">0%</b></div>
+    <div class="row"><span>Variance</span><b id="var7">0</b></div>
+  </section>
+</main>
+
+<main id="view-phase" class="view">
+  <section class="card">
+    <h3>Phase</h3>
+    <canvas id="chart" height="220"></canvas>
+  </section>
+</main>
+
+<main id="view-data" class="view">
+  <section class="card">
+    <button id="exportJson" class="ghost">Exporter JSON</button>
+    <button id="exportCsv" class="ghost">Exporter CSV</button>
+    <button id="resetApp" class="danger">Réinitialiser (local)</button>
+    <div class="hint">Données privées. Rien n’est envoyé en ligne.</div>
+  </section>
+</main>
+
+<script type="module" src="app.js?v=1"></script>
+</body></html>

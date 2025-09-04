@@ -1,0 +1,30 @@
+:root{--bg:#0b1220;--card:#111a2c;--ink:#eaf1ff;--mut:#98a7c5;--acc:#5ad1ff;--ok:#2bd67b;--bad:#ff4d6d}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.35 system-ui,-apple-system}
+.top{max-width:820px;margin:14px auto 6px;padding:8px 14px}
+h1{margin:0 0 6px 0;font-size:20px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:13px;color:var(--mut)}
+.tabs{position:sticky;top:0;background:rgba(11,18,32,.9);backdrop-filter:saturate(1.2) blur(6px);padding:8px;display:flex;gap:8px;justify-content:center;z-index:10}
+.tab{border:1px solid #20304d;background:#0f182a;color:var(--ink);padding:8px 12px;border-radius:999px}
+.tab.active{background:var(--acc);color:#00223a;border-color:transparent}
+.view{display:none;max-width:820px;margin:10px auto;padding:0 14px}
+.view.active{display:block}
+.card{background:var(--card);border-radius:16px;padding:12px;margin:10px 0;box-shadow:0 2px 0 rgba(255,255,255,.03) inset}
+.moments{display:flex;gap:8px;margin-bottom:8px}
+.pill{flex:1;padding:10px;border-radius:12px;background:#0e1729;color:var(--ink);border:1px solid #22324e}
+.pill.active{outline:2px solid var(--acc)}
+#sliders label{display:grid;grid-template-columns:150px 1fr 42px;gap:10px;align-items:center;margin:8px 0}
+input[type=range]{width:100%}
+textarea,input{width:100%;padding:10px;border-radius:10px;border:1px solid #233250;background:#0e1729;color:var(--ink);margin:8px 0}
+.primary,.ghost,.danger{width:100%;padding:12px;border-radius:12px}
+.primary{background:var(--ok);color:#001b11;border:0;font-weight:700}
+.ghost{background:#0f192c;border:1px solid #233250;color:var(--ink)}
+.danger{background:var(--bad);border:0;color:#330005}
+.hint{font-size:12px;color:var(--mut);margin-top:6px}
+.rem{display:flex;gap:8px;flex-wrap:wrap}
+.row{display:flex;justify-content:space-between;margin:6px 0;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cell{height:28px;border-radius:6px;background:#0e1729;border:1px solid #22324e}
+.cell[data-v="1"]{background:#18324e}.cell[data-v="2"]{background:#25577c}.cell[data-v="3"]{background:#2c7ab0}.cell[data-v="4"]{background:#38a9e8}.cell[data-v="5"]{background:#5ad1ff}
+.day-card{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:12px;background:#0e1729;border:1px solid #22324e;margin:8px 0;cursor:pointer}
+.hidden{display:none}
+@media (max-width:420px){.kpis{grid-template-columns:repeat(2,1fr)}}
